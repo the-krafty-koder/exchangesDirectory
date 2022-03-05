@@ -1,8 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
+import fetchersReducer from '../features/fetchers/fetchersSlice';
+import exchangeReducer from '../features/fetchers/fetchExchangeSlice';
 
-export const store = configureStore({
+const createStore = () => configureStore({
   reducer: {
     counter: counterReducer,
+    fetchers: fetchersReducer,
+    exchangeProfile: exchangeReducer,
   },
 });
+
+export default createStore;
