@@ -18,6 +18,10 @@ const App = () => useRoutes([
       path: '/page/:page',
       element: <ExchangesView exchangesData={sample}/>,
     },
+    {
+      path: '/profile/:profileId',
+      element: <ExchangeProfile/>,
+    },
   ]);
 
 const AppWrapper = () => (

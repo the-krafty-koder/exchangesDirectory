@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  useParams
+  useParams,
+  Link
 } from 'react-router-dom';
 import ItemInfo from '../ItemInfo';
 import { mainTable, header } from './index.css';
@@ -44,7 +45,9 @@ const ExchangesTable = ({ exchangesData }) => {
               </Table.Cell>
               <Table.Cell>{`${data.trust_score_rank}`}</Table.Cell>
               <Table.Cell>
-                <Button basic color='blue'> View </Button>
+                <Link to={ `/profile/${data.id}` }>
+                  View
+                </Link>
               </Table.Cell>
             </Table.Row>
           ))
