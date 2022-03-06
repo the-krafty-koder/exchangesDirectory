@@ -1,12 +1,8 @@
 import axios from 'axios';
 import { waitFor } from '@testing-library/react';
 
-import {
-  fetchExchange,
-  fetchListOfExchanges,
-} from './fetchersSlice';
-
 import createStore from '../../app/store';
+import { fetchListOfExchanges } from './fetchersSlice';
 
 const store = createStore();
 
@@ -20,7 +16,8 @@ describe('Lookups works when', () => {
       country: 'Mexico',
       description: '',
       url: 'https://bitso.com',
-      image: 'https://assets.coingecko.com/markets/images/8/small/Bitso-icon-dark.png?1581909156',
+      image:
+        'https://assets.coingecko.com/markets/images/8/small/Bitso-icon-dark.png?1581909156',
       has_trading_incentive: false,
       trust_score: 10,
       trust_score_rank: 29,
@@ -28,8 +25,9 @@ describe('Lookups works when', () => {
       trade_volume_24h_btc_normalized: 568.1661449003254,
     };
     await waitFor(() => {
-      expect(store.getState().fetchers.exchanges.data).toStrictEqual(expectedData);
+      expect(store.getState().fetchers.exchanges.data).toStrictEqual(
+        expectedData
+      );
     });
   });
-
 });

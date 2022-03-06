@@ -7,15 +7,11 @@ import { nameHeader } from './index.css';
 const ItemInfo = ({ logoUrl, name, country }) => (
   <Grid>
     <Grid.Column width={2}>
-      <Image src={logoUrl} size='mini' rounded />
+      <Image src={logoUrl} size="mini" rounded />
     </Grid.Column>
     <Grid.Column width={8}>
-      <Grid.Row style={nameHeader}>
-        { name }
-      </Grid.Row>
-      <Grid.Row>
-        { country }
-      </Grid.Row>
+      <Grid.Row style={nameHeader}>{name}</Grid.Row>
+      <Grid.Row>{country}</Grid.Row>
     </Grid.Column>
   </Grid>
 );

@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { waitFor } from '@testing-library/react';
-import {
-  fetchExchange,
-} from './fetchExchangeSlice';
+import { fetchExchange } from './fetchExchangeSlice';
 
 import createStore from '../../app/store';
 
@@ -19,9 +17,6 @@ describe('fetchExchange works when', () => {
       expect(store.getState().exchangeProfile.fetch.status).toBe('fetched');
     });
 
-    expect(
-      store.getState().exchangeProfile.data.name
-    ).toBeDefined();
+    expect(store.getState().exchangeProfile.data.name).toBeDefined();
   });
-
 });

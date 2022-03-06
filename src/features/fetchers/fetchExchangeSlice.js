@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const apiEndpoint = process.env.API_ENDPOINT;
+const apiEndpoint = process.env.REACT_APP_API_ENDPOINT;
 
 const options = {
   headers: {
@@ -12,20 +12,20 @@ const options = {
 export const fetchExchange = createAsyncThunk(
   'fetchers/fetchExchange',
   async ({ exchangeId }, { rejectWithValue }) => {
-      try {
-        const response = await axios.get(
-          `${apiEndpoint}/exchanges/${exchangeId}`,
-          options
-        );
-        return response.data;
-      }catch (err) {
-        if (!err.response) {
-          throw err;
-        }
+    const apiUrl = `${apiEndpoint}/exchanges/${exchangeId}`;
 
-        return rejectWithValue(err.response);
-      };
+    try {
+      console.log('called');
+      const response = await axios.get(apiUrl, options);
+      return response.data;
+    } catch (err) {
+      if (!err.response) {
+        throw err;
+      }
+
+      return rejectWithValue(err.response.data);
     }
+  }
 );
 
 export const initState = {
@@ -35,7 +35,18 @@ export const initState = {
     error: null,
   },
 
-  data: {},
+  data: {
+    name: '',
+    year_established: '',
+    country: '',
+    description: '',
+    url: '',
+    image: '',
+    facebook_url: '',
+    reddit_url: '',
+    trade_volume_24h_btc: 0,
+    tickers: [],
+  },
 };
 
 const exchangeProfileSlice = createSlice({
@@ -63,3 +74,5 @@ const exchangeProfileSlice = createSlice({
 });
 
 export default exchangeProfileSlice.reducer;
+
+export const selectExchange = (state) => state.exchange.data;

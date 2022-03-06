@@ -1,24 +1,23 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { fetchListOfExchanges } from '../fetchers/fetchersSlice';
-import { fetchExchange } from '../fetchers/fetchExchangeSlice';
+import { fetchListOfExchanges } from '../features/fetchers/fetchersSlice';
+import { fetchExchange } from '../features/fetchers/fetchExchangeSlice';
 
 const useFetchExchangesData = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(fetchListOfExchanges());
-    }, [dispatch]);
+    dispatch(fetchListOfExchanges());
+  }, [dispatch]);
 };
 
-const useFetchExchangeData = (exchangeId) => {
+const useFetchExchangeData = ({ exchangeId }) => {
   const dispatch = useDispatch();
-
-  // Profile
+  console.log(exchangeId);
   useEffect(() => {
-      dispatch(fetchExchange(exchangeId));
-    }, [dispatch, exchangeId]);
+    dispatch(fetchExchange({ exchangeId }));
+  }, [dispatch, exchangeId]);
 };
 
 export { useFetchExchangesData, useFetchExchangeData };

@@ -6,4 +6,7 @@ const info = {
   marginTop: '20px',
 };
 
-export { card, info };
+const header = {
+};
+
+export { card, info, header };

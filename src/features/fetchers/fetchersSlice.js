@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const apiEndpoint = process.env.API_ENDPOINT;
+const apiEndpoint = process.env.REACT_APP_API_ENDPOINT;
 
 const options = {
   headers: {
@@ -12,21 +12,18 @@ const options = {
 export const fetchListOfExchanges = createAsyncThunk(
   'fetchers/fetchListOfExchanges',
   async (_, { rejectWithValue }) => {
+    const apiUrl = `${apiEndpoint}/exchanges?per_page=20`;
+    try {
+      const response = await axios.get(apiUrl, options);
+      return response.data;
+    } catch (err) {
+      if (!err.response) {
+        throw err;
+      }
 
-      try {
-        const response = await axios.get(
-          `${apiEndpoint}/exchanges?page=1`,
-          options
-        );
-        return response.data;
-      }catch (err) {
-        if (!err.response) {
-          throw err;
-        }
-
-        return rejectWithValue(err.response);
-      };
+      return rejectWithValue(err.response);
     }
+  }
 );
 
 export const initState = {
@@ -59,4 +56,6 @@ const fetchersSlice = createSlice({
   },
 });
 
+export const selectExchanges = (state) => state.fetchers.exchanges.data;
+export const selectFetchStatus = (state) => state.fetchers.exchanges.status;
 export default fetchersSlice.reducer;

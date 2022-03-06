@@ -4,7 +4,7 @@ const mainTable = {
 };
 
 const header = {
-  backgroundColor: '#e1f5fe',
+  backgroundColor: '#e0f2f1 !important',
 };
 
 export { mainTable, header };

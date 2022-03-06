@@ -21,7 +21,8 @@ const get = (url, options) => {
         country: 'Mexico',
         description: '',
         url: 'https://bitso.com',
-        image: 'https://assets.coingecko.com/markets/images/8/small/Bitso-icon-dark.png?1581909156',
+        image:
+          'https://assets.coingecko.com/markets/images/8/small/Bitso-icon-dark.png?1581909156',
         has_trading_incentive: false,
         trust_score: 10,
         trust_score_rank: 29,
@@ -37,7 +38,8 @@ const get = (url, options) => {
       country: 'Mexico',
       description: '',
       url: 'https://bitso.com',
-      image: 'https://assets.coingecko.com/markets/images/8/small/Bitso-icon-dark.png?1581909156',
+      image:
+        'https://assets.coingecko.com/markets/images/8/small/Bitso-icon-dark.png?1581909156',
       has_trading_incentive: false,
       trust_score: 10,
       trust_score_rank: 29,
