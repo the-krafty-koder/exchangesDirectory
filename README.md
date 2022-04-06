@@ -3,7 +3,7 @@
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
 
-This is a dirrectory of the major cryptocurrency exchnagesobtain from There
+This is a dirrectory of the major cryptocurrency exchnages obtained from There
 coingecko API
 
 
